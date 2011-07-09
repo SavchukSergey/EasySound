@@ -1,0 +1,8 @@
+syntax: glob
+EasySound.suo
+EasySound.Tests/bin/
+EasySound.Tests/obj/
+EasySound.Console/bin/
+EasySound.Console/obj/
+EasySound/bin/
+EasySound/obj/

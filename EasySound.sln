@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasySound", "EasySound\EasySound.csproj", "{05415EEC-DC2F-4597-A34F-ED4128D01962}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasySound.Console", "EasySound.Console\EasySound.Console.csproj", "{556DC853-27E2-4F59-966D-3891457939EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasySound.Tests", "EasySound.Tests\EasySound.Tests.csproj", "{A062C5A7-20B9-4AC2-8720-DD2D76A12DB8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05415EEC-DC2F-4597-A34F-ED4128D01962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05415EEC-DC2F-4597-A34F-ED4128D01962}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05415EEC-DC2F-4597-A34F-ED4128D01962}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05415EEC-DC2F-4597-A34F-ED4128D01962}.Release|Any CPU.Build.0 = Release|Any CPU
+		{556DC853-27E2-4F59-966D-3891457939EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{556DC853-27E2-4F59-966D-3891457939EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{556DC853-27E2-4F59-966D-3891457939EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{556DC853-27E2-4F59-966D-3891457939EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A062C5A7-20B9-4AC2-8720-DD2D76A12DB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A062C5A7-20B9-4AC2-8720-DD2D76A12DB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A062C5A7-20B9-4AC2-8720-DD2D76A12DB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A062C5A7-20B9-4AC2-8720-DD2D76A12DB8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
