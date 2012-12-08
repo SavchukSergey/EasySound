@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<apc>
+  <job target="output.wav">
+    <parallel>
+      <harmonic freq="146.99" len="50" amp="1.0" name="D"/> 
+<!--
+      <harmonic freq="330" len="50" amp="1.0" name="E"/> 
+      <harmonic freq="311.47" len="5" amp="1.0"/>
+      <harmonic freq="293.99" len="5" amp="1.0"/>
+      <harmonic freq="247.22" len="50" amp="1.0"/>
+      <harmonic freq="277.49" len="5" amp="1.0"/>
+      <harmonic freq="261.92" len="5" amp="1.0"/>
+      <harmonic freq="247.22" len="5" amp="1.0" name="B"/>
+      <harmonic freq="233.34" len="5" amp="1.0"/>
+      <harmonic freq="220.24" len="5" amp="1.0"/>
+      <harmonic freq="207.88" len="5" amp="1.0"/>
+      <harmonic freq="196.21" len="50" amp="1.0" name="G" />
+      <harmonic freq="185.20" len="5" amp="1.0"/>
+      <harmonic freq="174.81" len="5" amp="1.0"/>
+      <harmonic freq="165" len="5" amp="1.0"/>
+-->
+    </parallel>
+  </job>
+</apc>

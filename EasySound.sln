@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasySound", "EasySound\EasySound.csproj", "{05415EEC-DC2F-4597-A34F-ED4128D01962}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasySound.Console", "EasySound.Console\EasySound.Console.csproj", "{556DC853-27E2-4F59-966D-3891457939EE}"
