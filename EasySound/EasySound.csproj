@@ -68,6 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AudioStream.cs" />
+    <Compile Include="Filters\BaseRCFilterAudioStream.cs" />
+    <Compile Include="Filters\LowPassFilterAudioStream.cs" />
+    <Compile Include="Filters\HighPassFilterAudioStream.cs" />
     <Compile Include="ReadSampleHandler.cs" />
     <Compile Include="SampleBitsAdjustmentStream.cs" />
     <Compile Include="SampleRateAdjustmentAudioStream.cs" />

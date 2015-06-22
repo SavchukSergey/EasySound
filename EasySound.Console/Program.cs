@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Xml.Linq;
 using System.IO;
+using EasySound.Filters;
 
 namespace EasySound {
     class Program {
@@ -34,6 +35,10 @@ namespace EasySound {
                     return ParseVolumeStream(element);
                 case "trimmed":
                     return ParseTrimmedStream(element);
+                case "lowpass":
+                    return ParseLowPassStream(element);
+                case "highpass":
+                    return ParseHighPassStream(element);
                 case "load-full":
                     return ParseWavFullReadStream(element);
             }
@@ -101,12 +106,30 @@ namespace EasySound {
         private static AudioStream ParseTrimmedStream(XElement element) {
             double start, end;
             if (!double.TryParse(element.Attribute("start").Value, out start)) {
-                throw new FormatException("start element for trimming stream is missing or incorrect");
+                throw new FormatException("start attribute for trimming stream is missing or incorrect");
             }
             if (!double.TryParse(element.Attribute("end").Value, out end)) {
-                throw new FormatException("end element for trimming stream is missing or incorrect");
+                throw new FormatException("end attribute for trimming stream is missing or incorrect");
             }
             return new TrimmedAudioStream(ParseSingleChildAudioStream(element), start, end);
+        }
+
+        private static AudioStream ParseLowPassStream(XElement element) {
+            double freq;
+            if (!double.TryParse(element.Attribute("freq").Value, out freq)) {
+                throw new FormatException("freq attribute for low-pass stream is missing or incorrect");
+            }
+           
+            return new LowPassFilterAudioStream(ParseSingleChildAudioStream(element), freq);
+        }
+
+        private static AudioStream ParseHighPassStream(XElement element) {
+            double freq;
+            if (!double.TryParse(element.Attribute("freq").Value, out freq)) {
+                throw new FormatException("freq attribute for hi-pass stream is missing or incorrect");
+            }
+
+            return new LowPassFilterAudioStream(ParseSingleChildAudioStream(element), freq);
         }
 
         private static AudioStream ParseSingleChildAudioStream(XElement element) {
