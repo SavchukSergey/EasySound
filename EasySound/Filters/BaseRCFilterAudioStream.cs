@@ -1,6 +1,9 @@
 ﻿using System;
 
 namespace EasySound.Filters {
+    /// <summary>
+    /// Represents basic RC filter functionality
+    /// </summary>
     public abstract class BaseRCFilterAudioStream : WrappedAudioStreamBase {
 
         protected readonly double _resistance;
@@ -24,6 +27,9 @@ namespace EasySound.Filters {
             _capacity = timeConstant / _resistance;
         }
 
+        /// <summary>
+        /// Gets frequency
+        /// </summary>
         public double Freq { get { return _freq; } }
     }
 }
