@@ -7,8 +7,6 @@ namespace EasySound {
     public class HarmonicAudioStream : AudioStream {
         private readonly double _frequency;
         private readonly double _amplitude;
-        private readonly ushort _bitsPerSample;
-        private readonly ushort _channelsCount;
         private readonly double _coeff;
 
         /// <summary>
@@ -23,8 +21,8 @@ namespace EasySound {
         public HarmonicAudioStream(double frequency, double amplitude, double length, uint sampleRate, ushort bitsPerSample, ushort channelsCount) {
             _frequency = frequency;
             _amplitude = amplitude;
-            _bitsPerSample = bitsPerSample;
-            _channelsCount = channelsCount;
+            BitsPerSample = bitsPerSample;
+            ChannelsCount = channelsCount;
             _coeff = 2 * Math.PI * _frequency;
             SampleRate = sampleRate;
             SamplesCount = (uint)(length * sampleRate);
@@ -45,16 +43,12 @@ namespace EasySound {
         /// <summary>
         /// Gets count of bits per sample. (16 or 8)
         /// </summary>
-        public override ushort BitsPerSample {
-            get { return _bitsPerSample; }
-        }
+        public override ushort BitsPerSample { get; }
 
         /// <summary>
         /// Gets count of channels. (1 for mono, 2 for stereo)
         /// </summary>
-        public override ushort ChannelsCount {
-            get { return _channelsCount; }
-        }
+        public override ushort ChannelsCount { get; }
 
         /// <summary>
         /// Reads next available sample.
@@ -67,7 +61,7 @@ namespace EasySound {
             }
             var angle = _position * _coeff;
             var res = _amplitude * Math.Sin(angle);
-            short value = (short)(res * 32767);
+            var value = (short)(res * 32767);
             sample.Time = _position;
             sample.Left = value;
             sample.Right = value;

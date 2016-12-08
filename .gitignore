@@ -15,3 +15,5 @@ EasySound/*.user
 
 _ReSharper.EasySound/
 /EasySound.v12.suo
+/.vs/EasySound/v14/*.suo
+/_ReSharper.Caches/

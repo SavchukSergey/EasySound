@@ -58,16 +58,12 @@ namespace EasySound {
         /// <summary>
         /// Gets count of channels. (1 for mono, 2 for stereo)
         /// </summary>
-        public override ushort ChannelsCount {
-            get { return _formatChunk.NumChannels; }
-        }
+        public override ushort ChannelsCount => _formatChunk.NumChannels;
 
         /// <summary>
         /// Gets count of bits per sample. (16 or 8)
         /// </summary>
-        public override ushort BitsPerSample {
-            get { return _formatChunk.BitsPerSample; }
-        }
+        public override ushort BitsPerSample => _formatChunk.BitsPerSample;
 
         private uint _endOfDataPosition;
 
@@ -78,7 +74,7 @@ namespace EasySound {
         /// <summary>
         /// Gets whether data stream is ended or not.
         /// </summary>
-        protected bool IsEndOfData { get { return StreamPosition >= _endOfDataPosition; } }
+        protected bool IsEndOfData => StreamPosition >= _endOfDataPosition;
 
         /// <summary>
         /// Gets whether stream is ended ot not.

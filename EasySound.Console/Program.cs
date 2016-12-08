@@ -6,16 +6,18 @@ using EasySound.Filters;
 
 namespace EasySound {
     class Program {
-        static void Main(string[] args) {
+        private static void Main(string[] args) {
             if (args.Length == 0) {
                 Usage();
                 return;
             }
-            XDocument doc = XDocument.Load(args[0]);
+            var doc = ReadDocument(args[0]);
+            if (doc == null) return;
+
             foreach (var job in doc.Root.Elements()) {
                 var primElements = job.Elements();
                 if (primElements.Count() != 1) throw new InvalidOperationException("Expected only one root for audio job");
-                AudioStream stream = ParseStream(primElements.First());
+                var stream = ParseStream(primElements.First());
                 using (var output = File.Open(job.Attribute("target").Value, FileMode.Create)) {
                     stream.SaveWav(output);
                 }
@@ -23,7 +25,16 @@ namespace EasySound {
             }
         }
 
-        static AudioStream ParseStream(XElement element) {
+        private static XDocument ReadDocument(string path) {
+            try {
+                return XDocument.Load(path);
+            } catch {
+                Console.WriteLine("couldn't parse xml");
+                return null;
+            }
+        }
+
+        private static AudioStream ParseStream(XElement element) {
             switch (element.Name.LocalName) {
                 case "harmonic":
                     return ParseHarmonicStream(element);
@@ -39,6 +50,8 @@ namespace EasySound {
                     return ParseLowPassStream(element);
                 case "highpass":
                     return ParseHighPassStream(element);
+                case "threshold":
+                    return ParseThresholdStream(element);
                 case "load-full":
                     return ParseWavFullReadStream(element);
             }
@@ -119,7 +132,7 @@ namespace EasySound {
             if (!double.TryParse(element.Attribute("freq").Value, out freq)) {
                 throw new FormatException("freq attribute for low-pass stream is missing or incorrect");
             }
-           
+
             return new LowPassFilterAudioStream(ParseSingleChildAudioStream(element), freq);
         }
 
@@ -130,6 +143,10 @@ namespace EasySound {
             }
 
             return new LowPassFilterAudioStream(ParseSingleChildAudioStream(element), freq);
+        }
+
+        private static AudioStream ParseThresholdStream(XElement element) {
+            return new ThresholdAudioStream(ParseSingleChildAudioStream(element));
         }
 
         private static AudioStream ParseSingleChildAudioStream(XElement element) {
